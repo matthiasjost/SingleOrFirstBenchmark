@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
 
 namespace SingleOrFirstBenchmark
 {
+
+    [SimpleJob(RuntimeMoniker.Net70)]
     public class Benchmarks
     {
         [Benchmark]
@@ -60,7 +63,7 @@ namespace SingleOrFirstBenchmark
         {
             using (SampleContext context = new SampleContext())
             {
-                SampleRecord recordFirst = context.SampleRecords.FirstOrDefault(r => r.Name == "10000000");
+                SampleRecord recordFirst = context.SampleRecords.FirstOrDefault(r => r.Name == "1000000");
             }
         }
 
@@ -79,7 +82,7 @@ namespace SingleOrFirstBenchmark
             using (SampleContext context = new SampleContext())
             {
                 SampleRecord recordSingle =
-                    context.SampleRecords.SingleOrDefault(r => r.Name == "10000000");
+                    context.SampleRecords.SingleOrDefault(r => r.Name == "1000000");
             }
         }
 

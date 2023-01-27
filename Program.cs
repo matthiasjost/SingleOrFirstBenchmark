@@ -10,7 +10,7 @@ namespace SingleOrFirstBenchmark
     {
         public static async Task Main(string[] args)
         {
-            // await InitialiseDbWithRecords();
+            //await InitialiseDbWithRecords();
 
             var summary = BenchmarkRunner.Run<Benchmarks>();
 
@@ -30,7 +30,7 @@ namespace SingleOrFirstBenchmark
             }
             await dbContext.SaveChangesAsync();
 
-            for (int i = 1; i <= 10_000_000; i++)
+            for (int i = 1; i <= 1_000_000; i++)
             {
                 if (i == 1)
                 {
@@ -40,7 +40,7 @@ namespace SingleOrFirstBenchmark
                         Name = i.ToString(),
                     });
                 }
-                else if (i == 10_000_000)
+                else if (i == 1_000_000)
                 {
                     dbContext.SampleRecords.Add(new SampleRecord()
                     {
@@ -55,6 +55,12 @@ namespace SingleOrFirstBenchmark
                         Uid = Guid.NewGuid(),
                         Name = i.ToString(),
                     });
+                }
+
+                if (i % 10000 == 0)
+                {
+                    await dbContext.SaveChangesAsync();
+                    Console.WriteLine(i);
                 }
             }
             await dbContext.SaveChangesAsync();
