@@ -15,6 +15,7 @@ namespace SingleOrFirstBenchmark
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.LogTo(Console.WriteLine);
             optionsBuilder.UseSqlServer(
                 @"Server=PLUTO-0101;Database=SampleRecords;Trusted_Connection=True;Encrypt=False");
         }

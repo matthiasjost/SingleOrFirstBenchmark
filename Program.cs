@@ -11,8 +11,9 @@ namespace SingleOrFirstBenchmark
         public static async Task Main(string[] args)
         {
             //await InitialiseDbWithRecords();
-
-            var summary = BenchmarkRunner.Run<Benchmarks>();
+            var benchmark = new Benchmarks();
+            benchmark.FirstOrDefault_Indexed_Last();
+            //var summary = BenchmarkRunner.Run<Benchmarks>();
 
             Console.ReadLine();
         }
