@@ -2,7 +2,7 @@
 
 This repository contains some performance tests to compare SingleOrDefault and FirstOrDefault.
 
-The tests were done with EF Core and an MS SQL server data base.
+The tests were done with EF Core and an MS SQL server database.
 
 The console application also contains the code to fill the table with example data.
 
@@ -21,5 +21,6 @@ The console application also contains the code to fill the table with example da
 |  SingleOrDefault_NotIndexed_Last | 234.705 ms | 6.6970 ms | 18.3330 ms | 229.725 ms | 180.13 |   25.51 |
 | SingleOrDefault_NotIndexed_First | 230.140 ms | 4.5863 ms | 12.5549 ms | 229.443 ms | 176.58 |   22.23 |
 
-## Se also
-[SingleOrDefault or FirstOrDefault? When LINQ might harm you](https://www.youtube.com/watch?v=ZTWl2s8ScMc)
+## See also
+* My Blog article: https://www.matthias-jost.ch/ef-core-single-vs-firstordefault/
+* Nick Chapsas' YT Video: [SingleOrDefault or FirstOrDefault? When LINQ might harm you](https://www.youtube.com/watch?v=ZTWl2s8ScMc)
